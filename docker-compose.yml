@@ -1,0 +1,20 @@
+version: '2.1'
+services:
+  web:
+    build: web
+    ports: 
+      - "80:80"
+    environment:
+      - PS_DEV_MODE=1
+    restart: always
+    network_mode: "host"
+  mysql:
+    build: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+      - MYSQL_ROOT_PASSWORD=h@aslo1234
+      - MYSQL_DATABASE=prestashop
+    restart: always
+    network_mode: "host"
